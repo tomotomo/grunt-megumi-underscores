@@ -24,17 +24,17 @@ exports.warnOn = '*';
 exports.template = function( grunt, init, done ) {
 	init.process( {}, [
 		// Prompt for these values.
-		init.prompt( 'title', 'WP Underscores' ),
+		init.prompt( 'title', 'Megumi Underscores' ),
 		{
 			name   : 'prefix',
 			message: 'PHP function prefix (alpha and underscore characters only)',
-			default: 'wpunderscores'
+			default: 'megumi'
 		},
-		init.prompt( 'description', 'The best WordPress theme ever made!' ),
-		init.prompt( 'homepage', 'http://wordpress.org/themes' ),
-		init.prompt( 'author_name' ),
-		init.prompt( 'author_email' ),
-		init.prompt( 'author_url' ),
+		init.prompt( 'description', 'Underscores based Megumi theme' ),
+		init.prompt( 'homepage', 'https://www.digitalcube.jp/' ),
+		init.prompt( 'author_name', 'DigitalCube Co., Ltd' ),
+		init.prompt( 'author_email', 'info@digitalcube.jp' ),
+		init.prompt( 'author_url', 'https://www.digitalcube.jp/' ),
 	], function( err, props ) {
 		props.keywords = [];
 		props.version = '0.1.0';
