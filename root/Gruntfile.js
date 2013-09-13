@@ -14,16 +14,15 @@ module.exports = function( grunt ) {
 			},
 			{%= js_safe_name %}: {
 				src: [
-					'assets/js/src/{%= js_safe_name %}.js'
+					'js/{%= js_safe_name %}.js'
 				],
-				dest: 'assets/js/{%= js_safe_name %}.js'
+				dest: 'js/{%= js_safe_name %}.min.js'
 			}
 		},
 		jshint: {
 			all: [
 				'Gruntfile.js',
-				'assets/js/src/**/*.js',
-				'assets/js/test/**/*.js'
+				'js/*.js',
 			],
 			options: {
 				curly:   true,
@@ -40,12 +39,14 @@ module.exports = function( grunt ) {
 					exports: true,
 					module:  false
 				}
-			}		
+			}
 		},
 		uglify: {
 			all: {
 				files: {
-					'assets/js/{%= js_safe_name %}.min.js': ['assets/js/{%= js_safe_name %}.js']
+					'js/{%= js_safe_name %}.min.js': [
+                        'js/{%= js_safe_name %}.js'
+                    ]
 				},
 				options: {
 					banner: '/*! <%= pkg.title %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n' +
@@ -59,9 +60,6 @@ module.exports = function( grunt ) {
 				}
 			}
 		},
-		test:   {
-			files: ['assets/js/test/**/*.js']
-		},
 
         compass: {
             dist: {
@@ -73,37 +71,19 @@ module.exports = function( grunt ) {
                     javascriptsDir: 'js'
                 }
             }
-        },
-
-		cssmin: {
-			options: {
-				banner: '/*! <%= pkg.title %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n' +
-					' * <%= pkg.homepage %>\n' +
-					' * Copyright (c) <%= grunt.template.today("yyyy") %>;' +
-					' * Licensed GPLv2+' +
-					' */\n'
-			},
-			minify: {
-				expand: true,
-				cwd: 'assets/css/src/',
-				src: ['{%= js_safe_name %}.css'],
-				dest: 'assets/css/',
-				ext: '.min.css'
-			}
-		}
+        }
 	} );
 	
 	// Load other tasks
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-compass');
 	
 	// Default task.
 	grunt.registerTask(
         'default',
-        ['jshint', 'concat', 'uglify', 'cssmin', 'compass']
+        ['jshint', 'concat', 'uglify', 'compass']
     );
 
 	grunt.util.linefeed = '\n';
