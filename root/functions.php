@@ -12,6 +12,8 @@
  * @since {%= title %} 0.1.0
  */
 
+require(dirname(__FILE__).'/vendor/autoload.php');
+
  // Useful global constants
 define( '{%= prefix_caps %}_VERSION', '0.1.0' );
 
