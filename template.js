@@ -45,7 +45,7 @@ exports.template = function( grunt, init, done ) {
 			'grunt-contrib-cssmin': '~0.6.0',
 			'grunt-contrib-jshint': '~0.1.1',
 			'grunt-contrib-nodeunit': '~0.1.2',
-			'grunt-contrib-watch': '~0.2.0',
+            'grunt-contrib-compass': '*',
 		};
 		
 		// Sanitize names where we need to for PHP/JS
@@ -71,6 +71,13 @@ exports.template = function( grunt, init, done ) {
 		// Generate package.json file
 		init.writePackageJSON( 'package.json', props );
 		
+        var fs = require('fs');
+        fs.mkdir('./js');
+        fs.mkdir('./css');
+        fs.mkdir('./sass');
+        fs.writeFile('./sass/'+props.js_safe_name+'.scss', '@import "compass"');
+        fs.writeFile('./js/'+props.js_safe_name+'.js', '');
+
 		// Done!
 		done();
 	});

@@ -62,6 +62,19 @@ module.exports = function( grunt ) {
 		test:   {
 			files: ['assets/js/test/**/*.js']
 		},
+
+        compass: {
+            dist: {
+                options: {
+                    sassDir: 'sass',
+                    cssDir: 'css',
+                    outputStyle: 'compressed',
+                    imagesDir: 'img',
+                    javascriptsDir: 'js'
+                }
+            }
+        },
+
 		cssmin: {
 			options: {
 				banner: '/*! <%= pkg.title %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n' +
@@ -77,22 +90,6 @@ module.exports = function( grunt ) {
 				dest: 'assets/css/',
 				ext: '.min.css'
 			}
-		},
-		watch:  {
-			styles: {
-				files: ['assets/css/src/*.css'],
-				tasks: ['cssmin'],
-				options: {
-					debounceDelay: 500
-				}
-			},
-			scripts: {
-				files: ['assets/js/src/**/*.js', 'assets/js/vendor/**/*.js'],
-				tasks: ['jshint', 'concat', 'uglify'],
-				options: {
-					debounceDelay: 500
-				}
-			}
 		}
 	} );
 	
@@ -101,10 +98,13 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
-	grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-compass');
 	
 	// Default task.
-	grunt.registerTask( 'default', ['jshint', 'concat', 'uglify', 'cssmin'] );
+	grunt.registerTask(
+        'default',
+        ['jshint', 'concat', 'uglify', 'cssmin', 'compass']
+    );
 
 	grunt.util.linefeed = '\n';
 };
