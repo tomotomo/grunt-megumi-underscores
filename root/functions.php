@@ -11,20 +11,20 @@
  * @package {%= title %}
  * @since {%= title %} 0.1.0
  */
- 
+
  // Useful global constants
 define( '{%= prefix_caps %}_VERSION', '0.1.0' );
- 
+
  /**
   * Add humans.txt to the <head> element.
   */
  function {%= prefix %}_header_meta() {
 	$humans = '<link type="text/plain" rel="author" href="' . get_template_directory_uri() . '/humans.txt" />';
-	
+
 	echo apply_filters( '{%= prefix %}_humans', $humans );
  }
  add_action( 'wp_head', '{%= prefix %}_header_meta' );
- 
+
  /**
  * Set the content width based on the theme's design and stylesheet.
  *
@@ -117,7 +117,7 @@ add_action( 'widgets_init', '{%= prefix %}_widgets_init' );
  * Enqueue scripts and styles
  */
 function {%= prefix %}_scripts() {
-	wp_enqueue_style( 'style', get_stylesheet_uri() );
+	wp_enqueue_style( 'style', get_template_directory_uri() . '/css/{%=js_safe_name %}.css' );
 
 	wp_enqueue_script( 'small-menu', get_template_directory_uri() . '/js/small-menu.js', array( 'jquery' ), '20120206', true );
 
@@ -128,12 +128,11 @@ function {%= prefix %}_scripts() {
 	if ( is_singular() && wp_attachment_is_image() ) {
 		wp_enqueue_script( 'keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20120202' );
 	}
-	
+
 	$postfix = ( defined( 'SCRIPT_DEBUG' ) && true === SCRIPT_DEBUG ) ? '' : '.min';
 
-	wp_enqueue_script( '{%= prefix %}', get_template_directory_uri() . "/assets/js/{%= js_safe_name %}{$postfix}.js", array(), {%= prefix_caps %}_VERSION, true );
-		
-	wp_enqueue_style( '{%= prefix %}', get_template_directory_uri() . "/assets/css/{%= js_safe_name %}{$postfix}.css", array(), {%= prefix_caps %}_VERSION );
+	wp_enqueue_script( '{%= prefix %}', get_template_directory_uri() . "/js/{%= js_safe_name %}.js", array(), {%= prefix_caps %}_VERSION, true );
+
 }
 add_action( 'wp_enqueue_scripts', '{%= prefix %}_scripts' );
 

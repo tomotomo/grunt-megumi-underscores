@@ -74,6 +74,7 @@ exports.template = function( grunt, init, done ) {
         var fs = require('fs');
         fs.mkdir('./js');
         fs.mkdir('./css');
+        fs.mkdir('./img');
         fs.mkdir('./sass');
         fs.writeFile('./sass/'+props.js_safe_name+'.scss', '@import "compass"');
         fs.writeFile('./js/'+props.js_safe_name+'.js', '');
