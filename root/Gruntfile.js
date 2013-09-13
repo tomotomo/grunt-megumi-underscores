@@ -22,7 +22,7 @@ module.exports = function( grunt ) {
 		jshint: {
 			all: [
 				'Gruntfile.js',
-				'js/*.js',
+				'js/{%= js_safe_name %}.js'
 			],
 			options: {
 				curly:   true,
@@ -37,7 +37,9 @@ module.exports = function( grunt ) {
 				eqnull:  true,
 				globals: {
 					exports: true,
-					module:  false
+					module:  false,
+                    jQuery: false,
+                    Console: false
 				}
 			}
 		},

@@ -71,8 +71,8 @@ exports.template = function( grunt, init, done ) {
         fs.mkdir('./css');
         fs.mkdir('./img');
         fs.mkdir('./sass');
-        fs.writeFile('./sass/'+props.js_safe_name+'.scss', '@import "compass"');
-        fs.writeFile('./js/'+props.js_safe_name+'.js', '');
+        fs.writeFile('./sass/'+props.js_safe_name+'.scss', '@import "compass";\n@import "compass/reset"');
+        fs.writeFile('./js/'+props.js_safe_name+'.js', '(function($){})(jQuery);');
 
         // Done!
         done();
