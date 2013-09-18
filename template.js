@@ -8,7 +8,6 @@
 
 'use strict';
 
-// Basic template description
 exports.description = 'Create a WordPress theme based on Automattic\'s _s starter theme.';
 
 // Template-specific notes to be displayed before question prompts.
@@ -66,13 +65,42 @@ exports.template = function( grunt, init, done ) {
         // Generate package.json file
         init.writePackageJSON( 'package.json', props );
 
+        var path = require('path');
         var fs = require('fs');
-        fs.mkdir('./js');
-        fs.mkdir('./css');
-        fs.mkdir('./img');
-        fs.mkdir('./sass');
-        fs.writeFile('./sass/'+props.js_safe_name+'.scss', '@import "compass";\n@import "compass/reset"');
-        fs.writeFile('./js/'+props.js_safe_name+'.js', '(function($){})(jQuery);');
+
+        fs.stat(path.resolve('js'), function(err, stats){
+            if (err) {
+                fs.mkdir(path.resolve('js'));
+            }
+        });
+
+        fs.stat(path.resolve('css'), function(err, stats){
+            if (err) {
+                fs.mkdir(path.resolve('css'));
+            }
+        });
+
+        fs.stat(path.resolve('img'), function(err, stats){
+            if (err) {
+                fs.mkdir(path.resolve('img'));
+            }
+        });
+
+        fs.stat(path.resolve('sass'), function(err, stats){
+            if (err) {
+                fs.mkdir(path.resolve('sass'));
+            }
+        });
+
+        fs.writeFile(
+            path.resolve('sass')+props.js_safe_name+'.scss',
+            '@import "compass";\n@import "compass/reset"'
+        );
+
+        fs.writeFile(
+            path.resolve('js')+props.js_safe_name+'.js',
+            '(function($){})(jQuery);'
+        );
 
         // Done!
         done();
