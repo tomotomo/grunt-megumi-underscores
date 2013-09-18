@@ -32,7 +32,6 @@ exports.template = function( grunt, init, done ) {
         init.prompt( 'description', 'Underscores based Megumi theme' ),
         init.prompt( 'homepage', 'https://www.digitalcube.jp/' ),
         init.prompt( 'author_name', 'DigitalCube Co., Ltd' ),
-        init.prompt( 'author_email', 'info@digitalcube.jp' ),
         init.prompt( 'author_url', 'https://www.digitalcube.jp/' ),
     ], function( err, props ) {
         props.keywords = [];
