@@ -97,7 +97,7 @@ exports.template = function( grunt, init, done ) {
         );
 
         fs.writeFile(
-            path.resolve('js')+props.js_safe_name+'.js',
+            path.resolve('js')+'/'+props.js_safe_name+'.js',
             '(function($){})(jQuery);'
         );
 
