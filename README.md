@@ -57,9 +57,47 @@ grunt
 
 ## Compassをさらに使いこなす！
 
-### Susyを使う。
-
 ### Foundationを使う
+
+[Foundation](http://foundation.zurb.com/)をインストール
+
+```
+sudo gem install zurb-foundation
+```
+
+テーマディレクトリ内のGruntfile.jsの69行目に以下のように記述
+
+```
+        compass: {
+            dist: {
+                options: {
+                    require: 'zurb-foundation', // この行を追加
+                    sassDir: 'sass',
+                    cssDir: 'css',
+```
+
+あとは .scss を編集して `grunt` コマンドを実行！
+
+### Susyを使う
+
+[Susy](http://susy.oddbird.net/)をインストール
+
+```
+sudo gem install susy
+```
+
+テーマディレクトリ内のGruntfile.jsの69行目に以下のように記述
+
+```
+        compass: {
+            dist: {
+                options: {
+                    require: 'susy', // この行を追加
+                    sassDir: 'sass',
+                    cssDir: 'css',
+```
+
+あとは .scss を編集して `grunt` コマンドを実行！
 
 ## Notes
 
