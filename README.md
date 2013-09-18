@@ -31,7 +31,7 @@ git pull
 
 ## 使い方
 
-`wp-content/themes` ディレクトリに移動して任意のディレクトリを作成したあとで、以下のコマンドを実行してください。
+`wp-content/themes` ディレクトリに移動して任意のディレクトリを作成し、以下のコマンドを実行してください。
 
 ```
 grunt-init megumi-underscores
@@ -58,4 +58,4 @@ grunt
 
 ## Release History
 
- * 2013-06-08   v0.1.0   Initial public release
+ * 2013-09-19 First Release
