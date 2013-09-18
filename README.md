@@ -1,4 +1,4 @@
-# grunt-wp-underscores
+# grunt-megumi-underscores
 
 > Create a WordPress theme based on [Underscores][] with [grunt-init][].
 
