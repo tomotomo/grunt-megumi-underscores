@@ -8,6 +8,12 @@
 ## Installation
 もし、[grunt-init][] をインストールしてなければ先にインストールしてください。
 
+[grunt-init][] のインストールが完了したら、`~/.grunt-init/` ディレクトリを作成してください。
+
+```
+mkdir ~/.grunt-init
+```
+
 Once grunt-init is installed, place this template in your `~/.grunt-init/` directory. It's recommended that you use git to clone this template into that directory, as follows:
 
 ```
