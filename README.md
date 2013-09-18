@@ -56,6 +56,11 @@ grunt
 また、これらのファイルは、WordPressによってあらかじめロードされています。
 
 
+## Notes
+
+ * Compassの設定ファイル config.rb は不要です。
+ * Underscoresに対して、フックの追加、CSSの削除等の修正を加えてあります。
+
 ## Release History
 
  * 2013-09-19 First Release
