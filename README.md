@@ -14,27 +14,47 @@
 mkdir ~/.grunt-init
 ```
 
-Once grunt-init is installed, place this template in your `~/.grunt-init/` directory. It's recommended that you use git to clone this template into that directory, as follows:
+次は、以下のコマンドを実行して、このテンプレートをインストールしてください。
 
 ```
 git clone git@github.com:miya0001/grunt-megumi-underscores.git ~/.grunt-init/megumi-underscores
 ```
 
-## Usage
+インストールは以上で完了です。
 
-At the command-line, cd into an empty directory, run this command and follow the prompts.
+テンプレートを最新版に更新するには以下のコマンドを実行しましょう。
+
+```
+cd ~/.grunt-init/megumi-underscores
+git pull
+```
+
+## 使い方
+
+`wp-content/themes` ディレクトリに移動して任意のディレクトリを作成したあとで、以下のコマンドを実行してください。
 
 ```
 grunt-init megumi-underscores
 ```
 
-_Note that this template will generate files in the current directory, so be sure to change to a new directory first if you don't want to overwrite existing files._
+以上を実行すると、テーマ名などの入力を求められた後、テーマファイルが作成されます。
 
-Install the NPM modules required to actually process your newly-created project by running:
+テーマファイルの作成が完了したら、以下のコマンドを実行してください。これによりCompassなどのツールのセットアップが完了します。
 
 ```
 npm install
 ```
+
+あとは、`sass/your-theme-name.scss` や `js/your-theme-name.js` などを編集して、必要に応じて以下のコマンドを実行して、.scss などのコンパイルを実行してください。
+
+```
+grunt
+```
+
+以降は、`grunt` と実行するだけで、.scss のコンパイルや、JavaScriptのminifyを行います。
+
+また、これらのファイルは、WordPressによってあらかじめロードされています。
+
 
 ## Release History
 
