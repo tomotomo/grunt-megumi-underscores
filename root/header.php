@@ -19,6 +19,7 @@
 </head>
 
 <body <?php body_class(); ?>>
+<?php do_action( '{%= prefix %}_before_body' ); ?>
 <div id="page" class="hfeed site">
 	<header id="masthead" class="site-header" role="banner">
 
@@ -36,7 +37,7 @@
 			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 		</nav><!-- #site-navigation -->
 
-	    <?php do_action( 'megumi_after_header' ); ?>
+	    <?php do_action( '{%= prefix %}_after_header' ); ?>
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">

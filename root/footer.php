@@ -22,5 +22,6 @@
 
 <?php wp_footer(); ?>
 
+<?php do_action( '{%= prefix %}_after_body' ); ?>
 </body>
 </html>
