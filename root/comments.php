@@ -20,6 +20,7 @@ if ( post_password_required() )
 ?>
 
 	<div id="comments" class="comments-area">
+	    <?php do_action( '{%= prefix %}_before_comments' ); ?>
 
 	<?php // You can start editing here -- including this comment! ?>
 
@@ -70,4 +71,5 @@ if ( post_password_required() )
 
 	<?php comment_form(); ?>
 
+	    <?php do_action( '{%= prefix %}_after_comments' ); ?>
 </div><!-- #comments -->

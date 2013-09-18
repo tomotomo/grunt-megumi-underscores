@@ -6,6 +6,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
+		<?php do_action( '{%= prefix %}_before_entry_header' ); ?>
 		<h1 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
 
 		<?php if ( 'post' == get_post_type() ) : ?>
@@ -13,6 +14,7 @@
 			<?php {%= prefix %}_posted_on(); ?>
 		</div><!-- .entry-meta -->
 		<?php endif; ?>
+		<?php do_action( '{%= prefix %}_after_entry_header' ); ?>
 	</header><!-- .entry-header -->
 
 	<?php if ( is_search() ) : // Only display Excerpts for Search ?>
@@ -21,6 +23,7 @@
 	</div><!-- .entry-summary -->
 	<?php else : ?>
 	<div class="entry-content">
+		<?php do_action( '{%= prefix %}_before_entry_content' ); ?>
 		<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', '{%= prefix %}' ) ); ?>
 		<?php
 			wp_link_pages( array(
@@ -28,6 +31,7 @@
 				'after'  => '</div>',
 			) );
 		?>
+		<?php do_action( '{%= prefix %}_after_entry_content' ); ?>
 	</div><!-- .entry-content -->
 	<?php endif; ?>
 

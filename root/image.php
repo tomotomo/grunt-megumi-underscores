@@ -8,12 +8,14 @@
 get_header(); ?>
 
 	<div id="primary" class="content-area image-attachment">
+		<?php do_action( '{%= prefix %}_before_primary' ); ?>
 		<main id="main" class="site-main" role="main">
 
 		<?php while ( have_posts() ) : the_post(); ?>
 
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<header class="entry-header">
+		            <?php do_action( '{%= prefix %}_before_entry_header' ); ?>
 					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
 					<div class="entry-meta">
@@ -38,9 +40,11 @@ get_header(); ?>
 						<div class="nav-previous"><?php previous_image_link( false, __( '<span class="meta-nav">&larr;</span> Previous', '{%= prefix %}' ) ); ?></div>
 						<div class="nav-next"><?php next_image_link( false, __( 'Next <span class="meta-nav">&rarr;</span>', '{%= prefix %}' ) ); ?></div>
 					</nav><!-- #image-navigation -->
+		            <?php do_action( '{%= prefix %}_after_entry_header' ); ?>
 				</header><!-- .entry-header -->
 
 				<div class="entry-content">
+		            <?php do_action( '{%= prefix %}_before_entry_content' ); ?>
 					<div class="entry-attachment">
 						<div class="attachment">
 							<?php {%= prefix %}_the_attached_image(); ?>
@@ -60,6 +64,7 @@ get_header(); ?>
 							'after'  => '</div>',
 						) );
 					?>
+		            <?php do_action( '{%= prefix %}_after_entry_content' ); ?>
 				</div><!-- .entry-content -->
 
 				<?php edit_post_link( __( 'Edit', '{%= prefix %}' ), '<footer class="entry-meta"><span class="edit-link">', '</span></footer>' ); ?>
@@ -74,6 +79,7 @@ get_header(); ?>
 		<?php endwhile; // end of the loop. ?>
 
 		</main><!-- #main -->
+		<?php do_action( '{%= prefix %}_after_primary' ); ?>
 	</div><!-- #primary -->
 
 <?php get_footer(); ?>

@@ -75,13 +75,13 @@ module.exports = function( grunt ) {
             }
         }
 	} );
-	
+	//
 	// Load other tasks
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-compass');
-	
+
 	// Default task.
 	grunt.registerTask(
         'default',

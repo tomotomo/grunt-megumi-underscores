@@ -14,6 +14,7 @@
 get_header(); ?>
 
 	<div id="primary" class="content-area">
+		<?php do_action( '{%= prefix %}_before_primary' ); ?>
 		<main id="main" class="site-main" role="main">
 
 		<?php if ( have_posts() ) : ?>
@@ -40,6 +41,7 @@ get_header(); ?>
 		<?php endif; ?>
 
 		</main><!-- #main -->
+		<?php do_action( '{%= prefix %}_after_primary' ); ?>
 	</div><!-- #primary -->
 
 <?php get_sidebar(); ?>

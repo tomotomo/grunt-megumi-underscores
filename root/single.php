@@ -8,6 +8,7 @@
 get_header(); ?>
 
 	<div id="primary" class="content-area">
+		<?php do_action( '{%= prefix %}_before_primary' ); ?>
 		<main id="main" class="site-main" role="main">
 
 		<?php while ( have_posts() ) : the_post(); ?>
@@ -25,6 +26,7 @@ get_header(); ?>
 		<?php endwhile; // end of the loop. ?>
 
 		</main><!-- #main -->
+		<?php do_action( '{%= prefix %}_after_primary' ); ?>
 	</div><!-- #primary -->
 
 <?php get_sidebar(); ?>

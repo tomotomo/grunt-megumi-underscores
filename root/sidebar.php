@@ -6,7 +6,7 @@
  */
 ?>
 	<div id="secondary" class="widget-area" role="complementary">
-		<?php do_action( 'before_sidebar' ); ?>
+		<?php do_action( '{%= prefix %}_before_secondary' ); ?>
 		<?php if ( ! dynamic_sidebar( 'sidebar-1' ) ) : ?>
 
 			<aside id="search" class="widget widget_search">
@@ -30,4 +30,5 @@
 			</aside>
 
 		<?php endif; // end sidebar widget area ?>
+		<?php do_action( '{%= prefix %}_after_secondary' ); ?>
 	</div><!-- #secondary -->
