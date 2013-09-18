@@ -14,15 +14,15 @@ module.exports = function( grunt ) {
 			},
 			{%= js_safe_name %}: {
 				src: [
-					'js/{%= js_safe_name %}.js'
+					'js/{%= file_name %}.js'
 				],
-				dest: 'js/{%= js_safe_name %}.min.js'
+				dest: 'js/{%= file_name %}.min.js'
 			}
 		},
 		jshint: {
 			all: [
 				'Gruntfile.js',
-				'js/{%= js_safe_name %}.js'
+				'js/{%= file_name %}.js'
 			],
 			options: {
 				curly:   true,
@@ -46,8 +46,8 @@ module.exports = function( grunt ) {
 		uglify: {
 			all: {
 				files: {
-					'js/{%= js_safe_name %}.min.js': [
-                        'js/{%= js_safe_name %}.js'
+					'js/{%= file_name %}.min.js': [
+                        'js/{%= file_name %}.js'
                     ]
 				},
 				options: {

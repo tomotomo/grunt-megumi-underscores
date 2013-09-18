@@ -52,6 +52,7 @@ exports.template = function( grunt, init, done ) {
         props.prefix_caps = props.prefix.toUpperCase();
         // An additional value, safe to use as a JavaScript identifier.
         props.js_safe_name = props.name.replace(/[\W_]+/g, '_').replace(/^(\d)/, '_$1');
+        props.file_name = props.js_safe_name.replace(/_/g, '-');
         // An additional value that won't conflict with NodeUnit unit tests.
         props.js_test_safe_name = props.js_safe_name === 'test' ? 'myTest' : props.js_safe_name;
         props.js_safe_name_caps = props.js_safe_name.toUpperCase();
@@ -79,13 +80,13 @@ exports.template = function( grunt, init, done ) {
             }
         });
 
-        fs.writeFile(
-            path.resolve('sass')+'/'+props.js_safe_name+'.scss',
+        fs.writeFileSync(
+            path.resolve('sass')+'/'+props.file_name+'.scss',
             '@import "compass";\n@import "compass/reset";\n@import "_wordpress.scss";'
         );
 
-        fs.writeFile(
-            path.resolve('js')+'/'+props.js_safe_name+'.js',
+        fs.writeFileSync(
+            path.resolve('js')+'/'+props.file_name+'.js',
             '(function($){})(jQuery);'
         );
 
