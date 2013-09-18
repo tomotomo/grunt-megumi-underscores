@@ -8,6 +8,10 @@
 ## Installation
 もし、[grunt-init][] をインストールしてなければ先にインストールしてください。
 
+```
+sudo npm install -g grunt-init
+```
+
 [grunt-init][] のインストールが完了したら、`~/.grunt-init/` ディレクトリを作成してください。
 
 ```
