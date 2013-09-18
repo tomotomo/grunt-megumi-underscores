@@ -67,12 +67,6 @@ exports.template = function( grunt, init, done ) {
         var path = require('path');
         var fs = require('fs');
 
-        fs.stat(path.resolve('js'), function(err, stats){
-            if (err) {
-                fs.mkdir(path.resolve('js'));
-            }
-        });
-
         fs.stat(path.resolve('css'), function(err, stats){
             if (err) {
                 fs.mkdir(path.resolve('css'));
@@ -85,15 +79,9 @@ exports.template = function( grunt, init, done ) {
             }
         });
 
-        fs.stat(path.resolve('sass'), function(err, stats){
-            if (err) {
-                fs.mkdir(path.resolve('sass'));
-            }
-        });
-
         fs.writeFile(
-            path.resolve('sass')+props.js_safe_name+'.scss',
-            '@import "compass";\n@import "compass/reset"'
+            path.resolve('sass')+'/'+props.js_safe_name+'.scss',
+            '@import "compass";\n@import "compass/reset";\n@import "_wordpress.scss";'
         );
 
         fs.writeFile(
