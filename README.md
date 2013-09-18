@@ -10,16 +10,8 @@ If you haven't already done so, install [grunt-init][].
 
 Once grunt-init is installed, place this template in your `~/.grunt-init/` directory. It's recommended that you use git to clone this template into that directory, as follows:
 
-### Linux/Mac Users
-
 ```
-git clone git@github.com:ericmann/grunt-wp-underscores.git ~/.grunt-init/wp-underscores
-```
-
-### Windows Users
-
-```
-git clone git@github.com:ericmann/grunt-wp-underscores.git %USERPROFILE%/.grunt-init/wp-underscores
+git clone git@github.com:miya0001/grunt-megumi-underscores.git ~/.grunt-init/megumi-underscores
 ```
 
 ## Usage
@@ -27,7 +19,7 @@ git clone git@github.com:ericmann/grunt-wp-underscores.git %USERPROFILE%/.grunt-
 At the command-line, cd into an empty directory, run this command and follow the prompts.
 
 ```
-grunt-init wp-underscores
+grunt-init megumi-underscores
 ```
 
 _Note that this template will generate files in the current directory, so be sure to change to a new directory first if you don't want to overwrite existing files._
