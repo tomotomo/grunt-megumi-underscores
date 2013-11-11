@@ -38,8 +38,8 @@ module.exports = function( grunt ) {
 				globals: {
 					exports: true,
 					module:  false,
-                    jQuery: false,
-                    Console: false
+					jQuery: false,
+					Console: false
 				}
 			}
 		},
@@ -47,8 +47,8 @@ module.exports = function( grunt ) {
 			all: {
 				files: {
 					'js/{%= file_name %}.min.js': [
-                        'js/{%= file_name %}.js'
-                    ]
+						'js/{%= file_name %}.js'
+					]
 				},
 				options: {
 					banner: '/*! <%= pkg.title %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n' +
@@ -63,30 +63,30 @@ module.exports = function( grunt ) {
 			}
 		},
 
-        compass: {
-            dist: {
-                options: {
-                    sassDir: 'sass',
-                    cssDir: 'css',
-                    outputStyle: 'compressed',
-                    imagesDir: 'img',
-                    javascriptsDir: 'js'
-                }
-            }
-        }
+		compass: {
+			dist: {
+				options: {
+					sassDir: 'sass',
+					cssDir: 'css',
+					outputStyle: 'compressed',
+					imagesDir: 'img',
+					javascriptsDir: 'js'
+				}
+			}
+		}
 	} );
 	//
 	// Load other tasks
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-compass');
+	grunt.loadNpmTasks('grunt-contrib-compass');
 
 	// Default task.
 	grunt.registerTask(
-        'default',
-        ['jshint', 'concat', 'uglify', 'compass']
-    );
+		'default',
+		['jshint', 'concat', 'uglify', 'compass']
+	);
 
 	grunt.util.linefeed = '\n';
 };
